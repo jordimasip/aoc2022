@@ -1,6 +1,6 @@
 fn main() {
 
-    let data = include_str!("input.txt");
+    let data = include_str!("input1.txt");
     let info = data.split("\n\n");
     let mut parsed_data: Vec<u32> = info
         .map(|line| {
