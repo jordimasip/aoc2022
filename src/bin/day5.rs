@@ -14,6 +14,12 @@ impl Crane {
            self.stack[m.to].push(item);
        }
     }
+
+    fn print_bottom(&self) {
+        for stack in &self.stack {
+            print!("{}", stack.last().expect("should exist").expect("should EXIST"));
+        }
+    }
 }
 
 impl FromStr for Crane {
@@ -99,12 +105,13 @@ fn main() -> Result<()> {
         .flat_map(|x| x.parse::<Move>())
         .collect::<Vec<Move>>();
     
-    println!("{:?}", crane);
+    //println!("{:?}", crane);
     for m in moves {
         crane.move_crane(&m);
     }
-    println!("{:?}", crane);
+    //println!("{:?}", crane);
 
+    crane.print_bottom();
     return Ok(());
 }
 
